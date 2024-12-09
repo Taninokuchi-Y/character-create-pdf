@@ -19,15 +19,15 @@
 | name          | string     | null: false |
 | furigana      | string     | null: false |
 | job           | string     | null: false |
-| age           | string     | null: false |
+| age           | integer    | null: false |
 | gender        | string     | null: false |
 | from          | string     | null: false |
-| str           | string     | null: false |
-| con           | string     | null: false |
-| dex           | string     | null: false |
-| app           | string     | null: false |
-| siz           | string     | null: false |
-| edu           | string     | null: false |
+| str           | integer    | null: false |
+| con           | integer    | null: false |
+| dex           | integer    | null: false |
+| app           | integer    | null: false |
+| siz           | integer    | null: false |
+| edu           | integer    | null: false |
 | possession    | text       |             |
 | memo          | text       |             |
 | custom_skills | json       |             |
