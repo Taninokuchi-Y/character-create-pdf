@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+  
+  <div class='title-contents'>
+    <h1 class='service-title'>
+      キャラクターシートをつくろう！
+    </h1>
+    <p class='service-explane'>
+      誰でも簡単にキャラクターシートの作成・管理が可能
+    </p>
+  </div>
+
+  <div class=''>
+    <% if user_signed_in? %>
+      <div class=''>
+        <div class=''><%= link_to 'キャラ作成', '#', class: "create-link" %></div>
+        <h2 class=''>
+          作成キャラクター一覧
+        </h2>
+        <div class=''>
+          <% if @characters.present? %>
+            <% @characters.each do |character| %>
+              <div class=''>
+                <%= link_to character_path(character) do %>
+                <div class=''>
+                  <div class=''>
+                    <%= character.name %>
+                  </div>
+                  <div class=''>
+                    <%= character.created_at %>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>表示できるキャラクターが存在しません</p>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class=''>
+        <div class=''><%= link_to '新規登録', new_user_registration_path, class: "sign-up-top" %></div>
+        <div class=''><%= link_to 'ログイン', new_user_session_path, class: "login-top" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>
