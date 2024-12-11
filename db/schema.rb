@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_09_195307) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_10_081759) do
   create_table "active_storage_attachments", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,11 +39,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_09_195307) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "character_skills", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "skill_id", null: false
+    t.integer "value", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_skills_on_character_id"
+    t.index ["skill_id"], name: "index_character_skills_on_skill_id"
+  end
+
   create_table "characters", charset: "utf8mb3", force: :cascade do |t|
     t.string "name", null: false
     t.string "furigana", null: false
     t.string "job", null: false
-    t.integer "age", null: false
+    t.string "age", null: false
     t.string "gender", null: false
     t.string "from", null: false
     t.integer "str", null: false
@@ -51,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_09_195307) do
     t.integer "dex", null: false
     t.integer "app", null: false
     t.integer "siz", null: false
+    t.integer "int", null: false
     t.integer "edu", null: false
     t.text "possession"
     t.text "memo"
@@ -59,6 +70,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_09_195307) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "skills", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "default_value", default: 0, null: false
+    t.string "calculation", null: false
+    t.string "genre", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
@@ -76,5 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_09_195307) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "character_skills", "characters"
+  add_foreign_key "character_skills", "skills"
   add_foreign_key "characters", "users"
 end

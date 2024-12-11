@@ -1,0 +1,153 @@
+<%= render "shared/header" %>
+
+<div class='character-create-contents'>
+  <div class=''>
+    <h2 class=''>キャラクターの情報を入力</h2>
+    <%= form_with model: @character, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# キャラクター画像%>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        キャラクター画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"character-image" %>
+      </div>
+    </div>
+    <%# /キャラクター画像 %>
+
+    <%# 基本情報 %>
+    <h3>基本情報</h3>
+    <div class="new-character">
+      <div class="weight-bold-text">
+        名前
+        <span class="indispensable">(必須)</span>
+      </div>
+      <%= f.text_field :name, class:"character-text", id:"character-name", placeholder:"", maxlength:"40" %>
+      <div class="weight-bold-text">
+        フリガナ
+      </div>
+      <%= f.text_field :furigana, class:"character-text", id:"character-furigana", placeholder:"", maxlength:"40" %>
+      <div class="weight-bold-text">
+        職業
+      </div>
+      <%= f.text_field :job, class:"character-text", id:"character-job", placeholder:"", maxlength:"40" %>
+      <div class="weight-bold-text">
+        年齢
+      </div>
+      <%= f.text_field :age, class:"character-text", id:"character-age", placeholder:"", maxlength:"20" %>
+      <div class="weight-bold-text">
+        性別
+      </div>
+      <%= f.text_field :gender, class:"character-text", id:"character-jender", placeholder:"", maxlength:"20" %>
+      <div class="weight-bold-text">
+        出身地
+      </div>
+      <%= f.text_field :from, class:"character-text", id:"character-from", placeholder:"", maxlength:"40" %>
+    </div>
+    <%# /基本情報 %>
+
+    <%# 能力値 %>
+    <h3>能力値</h3>
+    <table>
+      <% { 
+          str: "3d6", 
+          con: "3d6", 
+          dex: "3d6", 
+          app: "3d6", 
+          siz: "2d6+6", 
+          int: "2d6+6",
+          edu: "3d6+3" 
+        }.each do |attr, formula| %>
+        <tr>
+          <td><%= attr.upcase %></td>
+          <td>
+            <%= f.number_field attr, value: @character[attr] || 0, class: "form-control", id: "character-#{attr}", placeholder: formula %>
+          </td>
+          <td>
+            <button type="button" class="roll-dice" data-target="character-<%= attr %>" data-formula="<%= formula %>">ランダム</button>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%# 一括ダイス振りボタン %>
+    <button type="button" id="roll-all-dice" class="btn btn-primary">すべての能力をランダムに設定</button>
+    <%# /一括ダイス振りボタン %>
+    <%# /能力値 %>
+
+    <%# 技能 %>
+    <h3>技能</h3>
+    <p>
+      使用可能ポイント: <span id="total-points"><%= @character.available_points %></span>
+    </p>
+    <p>
+      残りポイント: <span id="remaining-points" class="<%= 'text-danger' if @character.remaining_points <= 0 %>">
+        <%= @character.remaining_points %></span>
+    </p>
+
+    <% Skill.order(:genre, :name).group_by(&:genre).each do |genre, skills| %>
+      <h3><%= genre %></h3>
+      <table>
+        <% skills.each do |skill| %>
+          <tr>
+            <td><%= skill.name %></td>
+            <td>
+              <%= f.fields_for :character_skills, @character.character_skills.build(skill: skill) do |csf| %>
+                <%= csf.hidden_field :skill_id, value: skill.id %>
+                <%= csf.number_field :value, value: skill.default_value, class: "form-control skill-point-input", data: { base: skill.default_value } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+
+    <h3>カスタム技能</h3>
+    <div id="custom-skills">
+      <% @character.custom_skills&.each do |skill_name, value| %>
+        <div class="custom-skill">
+          <input type="text" name="character[custom_skills][<%= skill_name %>][name]" value="<%= skill_name %>" placeholder="技能名">
+          <input type="number" name="character[custom_skills][<%= skill_name %>][value]" value="<%= value %>" placeholder="値" class="custom-skill-value">
+          <button type="button" class="remove-skill">削除</button>
+        </div>
+      <% end %>
+    </div>
+    <button type="button" id="add-skill">カスタム技能を追加</button>
+    <%# /技能 %>
+
+    <%# 所持品 %>
+    <div class="possessions">
+      <div class="weight-bold-text">
+        所持品
+      </div>
+      <%= f.text_area :possession, class:"character-text", id:"character-possession", placeholder:"拳銃(?d? + ?), スマホ" ,rows:"3" ,maxlength:"400" %>
+    </div>
+    <%# /所持品 %>
+
+    <%# メモ %>
+    <div class="note">
+      <div class="weight-bold-text">
+        メモ
+      </div>
+      <%= f.text_area :memo, class:"character-text", id:"character-memo", placeholder:"" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+    <%# /メモ %>
+
+    <%# ボタン %>
+    <div class="create-btn-contents">
+      <%= f.submit "保存する" ,class:"create-btn" %>
+      <%= link_to "作成をやめる", root_path, class:"back-btn" %>
+    </div>
+    <%# /ボタン %>
+
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
