@@ -14,7 +14,7 @@
   <div class=''>
     <% if user_signed_in? %>
       <div class=''>
-        <div class=''><%= link_to 'キャラ作成', '#', class: "create-link" %></div>
+        <div class=''><%= link_to 'キャラ作成', new_character_path, class: "create-link" %></div>
         <h2 class=''>
           作成キャラクター一覧
         </h2>
@@ -47,4 +47,5 @@
     <% end %>
   </div>
 </div>
+
 <%= render "shared/footer" %>

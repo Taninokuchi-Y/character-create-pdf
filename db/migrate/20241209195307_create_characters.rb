@@ -4,7 +4,7 @@ class CreateCharacters < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :furigana, null: false
       t.string :job, null: false
-      t.integer :age, null: false
+      t.string :age, null: false
       t.string :gender, null: false
       t.string :from, null: false
       t.integer :str, null: false
@@ -12,6 +12,7 @@ class CreateCharacters < ActiveRecord::Migration[7.0]
       t.integer :dex, null: false
       t.integer :app, null: false
       t.integer :siz, null: false
+      t.integer :int, null: false
       t.integer :edu, null: false
       t.text :possession
       t.text :memo
