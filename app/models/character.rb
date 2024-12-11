@@ -2,6 +2,7 @@ class Character < ApplicationRecord
   validates :name,       presence: true
   validates :str,        presence: true
   validates :con,        presence: true
+  validates :pow,        presence: true
   validates :dex,        presence: true
   validates :app,        presence: true
   validates :siz,        presence: true

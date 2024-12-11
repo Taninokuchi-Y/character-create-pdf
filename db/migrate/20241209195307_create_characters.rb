@@ -9,6 +9,7 @@ class CreateCharacters < ActiveRecord::Migration[7.0]
       t.string :from, null: false
       t.integer :str, null: false
       t.integer :con, null: false
+      t.integer :pow, null: false
       t.integer :dex, null: false
       t.integer :app, null: false
       t.integer :siz, null: false

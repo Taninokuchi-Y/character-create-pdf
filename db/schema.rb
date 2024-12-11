@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_10_081759) do
     t.string "from", null: false
     t.integer "str", null: false
     t.integer "con", null: false
+    t.integer "pow", null: false
     t.integer "dex", null: false
     t.integer "app", null: false
     t.integer "siz", null: false

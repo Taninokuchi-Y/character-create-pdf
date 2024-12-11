@@ -1,0 +1,158 @@
+<%= render "shared/header" %>
+
+<%# キャラクターの詳細 %>
+<div class="chara-show">
+  <div class="chara-box">
+    <h2 class="name">
+      <%= @character.name %>
+    </h2>
+    </div>
+
+    <%= link_to "キャラクターの編集", edit_character_path, method: :get, class: "edit-btn" %>
+    <%= link_to "削除", character_path(@character), data: { turbo_method: :delete }, class:"destroy-btn" %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-character">名前</th>
+          <td class="detail-value"><%= @character.name  %></td>
+        </tr>
+        <tr>
+          <th class="detail-character">フリガナ</th>
+          <td class="detail-value"><%= @character.furigana  %></td>
+        </tr>
+        <tr>
+          <th class="detail-character">職業</th>
+          <td class="detail-value"><%= @character.job  %></td>
+        </tr>
+        <tr>
+          <th class="detail-character">年齢</th>
+          <td class="detail-value"><%= @character.age  %></td>
+        </tr>
+        <tr>
+          <th class="detail-character">性別</th>
+          <td class="detail-value"><%= @character.gender  %></td>
+        </tr>
+        <tr>
+          <th class="detail-character">出身地</th>
+          <td class="detail-value"><%= @character.from  %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="ability-table">
+      <tbody>
+        <tr>
+          <th class="ability-character">STR(筋力)</th>
+          <td class="ability-value"><%= @character.str  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">CON(体力)</th>
+          <td class="ability-value"><%= @character.con  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">POW(精神力)</th>
+          <td class="ability-value"><%= @character.pow  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">DEX(敏捷性)</th>
+          <td class="ability-value"><%= @character.dex  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">APP(外見)</th>
+          <td class="ability-value"><%= @character.app  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">SIZ(体格)</th>
+          <td class="ability-value"><%= @character.siz  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">INT(知性)</th>
+          <td class="ability-value"><%= @character.int  %></td>
+        </tr>
+        <tr>
+          <th class="ability-character">EDU(教育)</th>
+          <td class="ability-value"><%= @character.edu  %></td>
+        </tr>
+      </tbody>
+    </table>
+
+     <h3>スキル</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>技能名</th>
+          <th>技能値</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @skills_by_genre.each do |genre, skills| %>
+          <h4><%= genre %></h4>
+          <table>
+            <thead>
+              <tr>
+                <th>技能名</th>
+                <th>技能値</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% skills.each do |skill| %>
+                <tr>
+                  <td><%= skill.name %></td>
+                  <td>
+                    <%= @character.character_skills.find_by(skill: skill)&.value || '未設定' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </tbody>
+    </table>
+
+  
+    <h4>カスタム技能</h4>
+    <% if @character.custom_skills.present? %>
+      <table>
+        <thead>
+          <tr>
+            <th>技能名</th>
+            <th>技能値</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% (@character.custom_skills || {}).each do |skill| %>
+            <tr>
+              <td><%= skill['name'] %></td>
+              <td><%= skill['value'] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>カスタム技能はありません。</p>
+    <% end %>
+
+    <h3>所持品</h3>
+    <div class="possessions">
+      <div class="possession-value"><%= @character.possession  %></div>
+    </div>
+
+    <h3>所持品</h3>
+    <div class="memos">
+      <div class="memo-value"><%= @character.memo  %></div>
+    </div>
+  </div>
+</div>
+<%# /キャラクターの詳細 %>
+
+<%# PDF出力 %>
+<%# /PDF出力 %>
+
+<%# ボタン %>
+<div class="create-btn-contents">
+  <%= link_to "戻る", root_path, class:"back-btn" %>
+</div>
+<%# /ボタン %>
+
+<%= render "shared/footer" %>
