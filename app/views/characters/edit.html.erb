@@ -111,10 +111,17 @@
 
     <h3>カスタム技能</h3>
     <div id="custom-skills">
-      <% @character.custom_skills&.each do |skill_name, value| %>
+      <% @character.custom_skills&.each_with_index do |skill_name, value| %>
         <div class="custom-skill">
-          <input type="text" name="character[custom_skills][<%= skill_name %>][name]" value="<%= skill_name %>" placeholder="技能名">
-          <input type="number" name="character[custom_skills][<%= skill_name %>][value]" value="<%= value %>" placeholder="値" class="custom-skill-value">
+          <input type="text" 
+                name="character[custom_skills][<%= skill_name %>][name]" 
+                value="<%= skill_name['name'] %>" 
+                placeholder="技能名">
+          <input type="number" 
+                name="character[custom_skills][<%= skill_name %>][value]" 
+                value="<%= skill_name['value'] %>" 
+                placeholder="値" 
+                class="custom-skill-value">
           <button type="button" class="remove-skill">削除</button>
         </div>
       <% end %>
@@ -143,7 +150,7 @@
     <%# ボタン %>
     <div class="create-btn-contents">
       <%= f.submit "保存する" ,class:"create-btn" %>
-      <%= link_to "作成をやめる", root_path, class:"back-btn" %>
+      <%= link_to "編集をやめる", root_path, class:"back-btn" %>
     </div>
     <%# /ボタン %>
 
