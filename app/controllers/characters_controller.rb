@@ -57,7 +57,7 @@ class CharactersController < ApplicationController
 
   def destroy
     @character.destroy
-    redirect_to root_path
+    redirect_to root_path, alert: "キャラクターを削除しました。"
   end
 
   private
