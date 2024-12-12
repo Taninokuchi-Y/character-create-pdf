@@ -2,104 +2,98 @@
 
 <%# キャラクターの詳細 %>
 <div class="chara-show">
-  <div class="chara-box">
+  <div class="chara-box-show">
     <h2 class="name">
       <%= @character.name %>
     </h2>
     </div>
 
-    <%= link_to "キャラクターの編集", edit_character_path, method: :get, class: "edit-btn" %>
-    <%= link_to "削除", character_path(@character), data: { turbo_method: :delete }, class:"destroy-btn" %>
+    <%= link_to "キャラクターの編集", edit_character_path, method: :get, class: "edit-btn-show" %>
+    <%= link_to "削除", character_path(@character), data: { turbo_method: :delete }, class:"destroy-btn-show" %>
 
-    <table class="detail-table">
+    <table class="detail-table-show">
       <tbody>
         <tr>
-          <th class="detail-character">名前</th>
-          <td class="detail-value"><%= @character.name  %></td>
+          <th class="detail-character-show">名前</th>
+          <td class="detail-value-show"><%= @character.name  %></td>
         </tr>
         <tr>
-          <th class="detail-character">フリガナ</th>
-          <td class="detail-value"><%= @character.furigana  %></td>
+          <th class="detail-character-show">フリガナ</th>
+          <td class="detail-value-show"><%= @character.furigana  %></td>
         </tr>
         <tr>
-          <th class="detail-character">職業</th>
-          <td class="detail-value"><%= @character.job  %></td>
+          <th class="detail-character-show">職業</th>
+          <td class="detail-value-show"><%= @character.job  %></td>
         </tr>
         <tr>
-          <th class="detail-character">年齢</th>
-          <td class="detail-value"><%= @character.age  %></td>
+          <th class="detail-character-show">年齢</th>
+          <td class="detail-value-show"><%= @character.age  %></td>
         </tr>
         <tr>
-          <th class="detail-character">性別</th>
-          <td class="detail-value"><%= @character.gender  %></td>
+          <th class="detail-character-show">性別</th>
+          <td class="detail-value-show"><%= @character.gender  %></td>
         </tr>
         <tr>
-          <th class="detail-character">出身地</th>
-          <td class="detail-value"><%= @character.from  %></td>
+          <th class="detail-character-show">出身地</th>
+          <td class="detail-value-show"><%= @character.from  %></td>
         </tr>
       </tbody>
     </table>
 
-    <table class="ability-table">
+    <table class="ability-table-show">
       <tbody>
         <tr>
-          <th class="ability-character">STR(筋力)</th>
-          <td class="ability-value"><%= @character.str  %></td>
+          <th class="ability-character-show">STR(筋力)</th>
+          <td class="ability-value-show"><%= @character.str  %></td>
         </tr>
         <tr>
-          <th class="ability-character">CON(体力)</th>
-          <td class="ability-value"><%= @character.con  %></td>
+          <th class="ability-character-show">CON(体力)</th>
+          <td class="ability-value-show"><%= @character.con  %></td>
         </tr>
         <tr>
-          <th class="ability-character">POW(精神力)</th>
-          <td class="ability-value"><%= @character.pow  %></td>
+          <th class="ability-character-show">POW(精神力)</th>
+          <td class="ability-value-show"><%= @character.pow  %></td>
         </tr>
         <tr>
-          <th class="ability-character">DEX(敏捷性)</th>
-          <td class="ability-value"><%= @character.dex  %></td>
+          <th class="ability-character-show">DEX(敏捷性)</th>
+          <td class="ability-value-show"><%= @character.dex  %></td>
         </tr>
         <tr>
-          <th class="ability-character">APP(外見)</th>
-          <td class="ability-value"><%= @character.app  %></td>
+          <th class="ability-character-show">APP(外見)</th>
+          <td class="ability-value-show"><%= @character.app  %></td>
         </tr>
         <tr>
-          <th class="ability-character">SIZ(体格)</th>
-          <td class="ability-value"><%= @character.siz  %></td>
+          <th class="ability-character-show">SIZ(体格)</th>
+          <td class="ability-value-show"><%= @character.siz  %></td>
         </tr>
         <tr>
-          <th class="ability-character">INT(知性)</th>
-          <td class="ability-value"><%= @character.int  %></td>
+          <th class="ability-character-show">INT(知性)</th>
+          <td class="ability-value-show"><%= @character.int  %></td>
         </tr>
         <tr>
-          <th class="ability-character">EDU(教育)</th>
-          <td class="ability-value"><%= @character.edu  %></td>
+          <th class="ability-character-show">EDU(教育)</th>
+          <td class="ability-value-show"><%= @character.edu  %></td>
         </tr>
       </tbody>
     </table>
 
-     <h3>スキル</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>技能名</th>
-          <th>技能値</th>
-        </tr>
-      </thead>
+    <h3>スキル</h3>
+    <table class='skill-0-show'>
       <tbody>
         <% @skills_by_genre.each do |genre, skills| %>
           <h4><%= genre %></h4>
-          <table>
+          <table class='skill-2-show'>
             <thead>
               <tr>
-                <th>技能名</th>
-                <th>技能値</th>
+                <th class='skill-title-1-show'>技能名</th>
+                <th class='skill-title-1-show'>技能値</th>
               </tr>
             </thead>
             <tbody>
               <% skills.each do |skill| %>
-                <tr>
-                  <td><%= skill.name %></td>
-                  <td>
+                <tr class='skill-3-show'>
+                  <td class='skill-4-show'><%= skill.name %></td>
+                  <td class='skill-5-show'>
                     <%= @character.character_skills.find_by(skill: skill)&.value || '未設定' %>
                   </td>
                 </tr>
@@ -116,15 +110,15 @@
       <table>
         <thead>
           <tr>
-            <th>技能名</th>
-            <th>技能値</th>
+            <th class='skill-title-1-show'>技能名</th>
+            <th class='skill-title-1-show'>技能値</th>
           </tr>
         </thead>
         <tbody>
           <% (@character.custom_skills || {}).each do |skill| %>
             <tr>
-              <td><%= skill['name'] %></td>
-              <td><%= skill['value'] %></td>
+              <td class='skill-6-show'><%= skill['name'] %></td>
+              <td class='skill-7-show'><%= skill['value'] %></td>
             </tr>
           <% end %>
         </tbody>
@@ -134,25 +128,27 @@
     <% end %>
 
     <h3>所持品</h3>
-    <div class="possessions">
-      <div class="possession-value"><%= @character.possession  %></div>
+    <div class="possessions-show">
+      <div class="possession-value-show"><%= @character.possession  %></div>
     </div>
 
     <h3>所持品</h3>
-    <div class="memos">
-      <div class="memo-value"><%= @character.memo  %></div>
+    <div class="memos-show">
+      <div class="memo-value-show"><%= @character.memo  %></div>
     </div>
   </div>
-</div>
-<%# /キャラクターの詳細 %>
 
-<%# PDF出力 %>
-<%# /PDF出力 %>
+  <%# /キャラクターの詳細 %>
 
-<%# ボタン %>
-<div class="create-btn-contents">
-  <%= link_to "戻る", root_path, class:"back-btn" %>
+  <%# PDF出力 %>
+  <%# /PDF出力 %>
+
+  <%# ボタン %>
+  <div class="create-btn-contents-show">
+    <%= link_to "戻る", root_path, class:"back-btn-show" %>
+  </div>
+  <%# /ボタン %>
+
 </div>
-<%# /ボタン %>
 
 <%= render "shared/footer" %>

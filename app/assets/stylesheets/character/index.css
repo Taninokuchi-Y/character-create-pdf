@@ -1,0 +1,126 @@
+/* 全体の背景色の設定 */
+body {
+  background-color: #2c3e50; /* ダークブルー */
+  color: #ecf0f1; /* 明るいグレー */
+  margin: 0;
+  padding: 0;
+}
+
+/* メイン全体のラッパー */
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* タイトルセクション */
+.title-contents {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+.service-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #f39c12; /* ノスタルジックなオレンジ */
+}
+
+.service-explane {
+  font-size: 18px;
+  color: #bdc3c7; /* 明るいグレー */
+}
+
+/* キャラクターセクション */
+.main-index {
+  text-align: center;
+}
+
+/* ログイン・登録セクション */
+.new-user-index {
+  margin-top: 20px;
+}
+
+.registration-index, .session-index {
+  margin: 10px 0;
+}
+
+.sign-up-top, .login-top {
+  display: inline-block;
+  text-decoration: none;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  background-color: #e74c3c; /* 赤色 */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.sign-up-top:hover, .login-top:hover {
+  background-color: #c0392b; /* 濃い赤色 */
+}
+
+/* キャラクター作成リンク */
+.create-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  background-color: #27ae60; /* 緑色 */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.create-link:hover {
+  background-color: #1e8449; /* 濃い緑色 */
+}
+
+/* キャラクター一覧 */
+.character-index {
+  margin-top: 30px;
+}
+
+.characre-title-index {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ecf0f1;
+}
+
+.characre-1-index {
+  width: 1200px;
+  margin-top: 10px;
+}
+
+.characre-2-index {
+  margin-bottom: 15px;
+}
+
+.characre-3-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #34495e; /* ダークグレー */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.characre-4-index {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ecf0f1;
+}
+
+.characre-5-index {
+  font-size: 14px;
+  color: #bdc3c7; /* 明るいグレー */
+}

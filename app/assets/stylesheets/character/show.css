@@ -1,0 +1,146 @@
+/* 全体の背景色 */
+body {
+  background-color: #2c3e50; /* ダークブルー */
+  color: #ecf0f1; /* 明るいグレー */
+  margin: 0;
+  padding: 0;
+}
+
+/* メインコンテナ */
+.chara-show {
+  width: 100%;
+  max-width: 900px; /* 横幅を縮める */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* キャラクター名セクション */
+.chara-box-show {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f39c12; /* ノスタルジックなオレンジ */
+}
+
+/* 編集・削除ボタン */
+.edit-btn-show, .destroy-btn-show {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn-show {
+  background-color: #3498db; /* 青色 */
+}
+
+.edit-btn-show:hover {
+  background-color: #2980b9; /* 濃い青色 */
+}
+
+.destroy-btn-show {
+  background-color: #e74c3c; /* 赤色 */
+}
+
+.destroy-btn-show:hover {
+  background-color: #c0392b; /* 濃い赤色 */
+}
+
+/* 詳細情報テーブル */
+table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  background-color: #34495e; /* ダークグレー */
+}
+
+th, td {
+  padding: 10px;
+  text-align: center; /* 全体を中央揃えで統一 */
+  border: 1px solid #2c3e50; /* 境界線 */
+}
+
+/* タイトル行 */
+th {
+  background-color: #1abc9c; /* 明るい緑 */
+  color: #ecf0f1;
+  font-weight: bold;
+}
+
+/* テーブル内容 */
+td {
+  color: #bdc3c7; /* 明るいグレー */
+}
+
+/* 列幅を固定化してジャンルごとに軸を揃える */
+th:nth-child(1), td:nth-child(1) {
+  width: 40%; /* 技能名列を統一 */
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 20%; /* 技能値列を統一 */
+}
+
+/* スキルテーブルのジャンル間の軸を統一 */
+.skill-1-show, .skill-2-show, .skill-3-show, .skill-4-show, .skill-5-show, .skill-6-show, .skill-7-show {
+  width: 100%;
+  margin: 20px 0;
+  background-color: #34495e;
+}
+
+.skill-title-1-show {
+  text-align: left; /* 左揃え */
+}
+
+/* カスタム技能テーブル */
+table.custom-skill-table {
+  margin-top: 20px;
+}
+
+.custom-skill-table th, .custom-skill-table td {
+  text-align: left; /* 左揃え */
+}
+
+/* 所持品とメモ */
+.possessions-show, .memos-show {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #34495e; /* ダークグレー */
+  border-radius: 5px;
+}
+
+.possession-value-show, .memo-value-show {
+  color: #ecf0f1;
+  line-height: 1.6;
+}
+
+/* ボタン */
+.create-btn-contents-show {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.back-btn-show {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  background-color: #8e44ad; /* 紫色 */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn-show:hover {
+  background-color: #71368a; /* 濃い紫色 */
+}
