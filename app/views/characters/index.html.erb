@@ -11,38 +11,42 @@
     </p>
   </div>
 
-  <div class=''>
+  <div class='main-index'>
     <% if user_signed_in? %>
-      <div class=''>
-        <div class=''><%= link_to 'キャラ作成', new_character_path, class: "create-link" %></div>
-        <h2 class=''>
+      <div class='character-index'>
+        <div class='characre-index'><%= link_to 'キャラ作成', new_character_path, class: "create-link" %></div>
+        <h2 class='characre-title-index'>
           作成キャラクター一覧
         </h2>
-        <div class=''>
-          <% if @characters.present? %>
-            <% @characters.each do |character| %>
-              <div class=''>
-                <%= link_to character_path(character) do %>
-                <div class=''>
-                  <div class=''>
-                    <%= character.name %>
+        <div class='character-0-index'>
+          <div class='characre-1-index'>
+            <% if @characters.present? %>
+              <% @characters.each do |character| %>
+                <% if current_user == character.user %>
+                  <div class='characre-2-index'>
+                    <%= link_to character_path(character) do %>
+                    <div class='characre-3-index'>
+                      <div class='characre-4-index'>
+                        <%= character.name %>
+                      </div>
+                      <div class='characre-5-index'>
+                        <%= character.created_at.in_time_zone('Asia/Tokyo').strftime('%Y年%m月%d日 %H:%M:%S') %>
+                      </div>
+                    </div>
+                    <% end %>
                   </div>
-                  <div class=''>
-                    <%= character.created_at %>
-                  </div>
-                </div>
                 <% end %>
-              </div>
+              <% end %>
+            <% else %>
+              <p>表示できるキャラクターが存在しません</p>
             <% end %>
-          <% else %>
-            <p>表示できるキャラクターが存在しません</p>
-          <% end %>
+          </div>
         </div>
       </div>
     <% else %>
-      <div class=''>
-        <div class=''><%= link_to '新規登録', new_user_registration_path, class: "sign-up-top" %></div>
-        <div class=''><%= link_to 'ログイン', new_user_session_path, class: "login-top" %></div>
+      <div class='new-user-index'>
+        <div class='registration-index'><%= link_to '新規登録', new_user_registration_path, class: "sign-up-top" %></div>
+        <div class='session-index'><%= link_to 'ログイン', new_user_session_path, class: "login-top" %></div>
       </div>
     <% end %>
   </div>

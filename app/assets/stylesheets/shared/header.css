@@ -1,0 +1,75 @@
+/* ヘッダー全体のスタイリング */
+.top-page-header {
+  display: flex;
+  justify-content: space-between; /* ロゴと右側のボタンを左右に分ける */
+  align-items: center; /* ロゴとボタンを縦方向に中央揃え */
+  background-color: #2c3e50; /* ヘッダーの背景色 */
+  padding: 20px 30px; /* ヘッダー内のパディング */
+  border-bottom: 3px solid #34495e; /* 下部に線を追加 */
+}
+
+/* ロゴのスタイリング */
+.title-logo {
+  width: 250px;
+  height: 50px;
+  font-size: 16px;
+  display: block;
+}
+
+.logo-btn {
+  width: 250px;
+  height: 50px;
+  font-size: 16px;
+  display: block;
+}
+
+/* リスト（ボタン）のスタイリング */
+.lists {
+  display: flex;
+  align-items: center; /* ボタンを縦方向に中央揃え */
+  list-style: none; /* リストマーカー（点）を削除 */
+  padding: 0; /* リストのデフォルトのパディングを削除 */
+}
+
+.lists li {
+  margin-left: 20px; /* ボタン間にスペースを追加 */
+}
+
+/* ボタンのスタイリング */
+.logo-btn, .user-name, .login, .sign-up, .logout {
+  color: #ecf0f1; /* ボタンのテキスト色 */
+  text-decoration: none; /* リンクの下線を消す */
+  font-weight: bold; /* ボタン文字を太字に */
+  font-size: 16px; /* フォントサイズ */
+  padding: 5px 10px; /* ボタン内のパディング */
+  display: flex; /* 縦軸を中央揃えにするためにflexを使用 */
+  align-items: center; /* 縦方向に中央揃え */
+  transition: color 0.3s ease; /* ホバー時の色変更のアニメーション */
+}
+
+/* ログアウトボタンの文字色を赤に変更 */
+.logout {
+  color: red; /* ログアウトボタンの文字色 */
+}
+
+/* ホバー時のボタン色変更 */
+.user-name:hover, .login:hover, .sign-up:hover, .logout:hover {
+  color: #bdc3c7; /* ホバー時に色が変わる */
+}
+
+/* レスポンシブデザイン - 小さな画面サイズでの調整 */
+@media (max-width: 768px) {
+  .top-page-header {
+    padding: 15px 20px; /* スマホではパディングを少し小さく */
+  }
+
+  .lists {
+    flex-direction: column; /* ボタンを縦に並べる */
+    align-items: flex-start; /* 左寄せ */
+  }
+
+  .lists li {
+    margin-left: 0;
+    margin-bottom: 10px; /* ボタン間のスペース */
+  }
+}

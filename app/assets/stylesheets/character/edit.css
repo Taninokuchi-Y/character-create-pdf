@@ -1,0 +1,193 @@
+/* General styling */
+.character-create-contents {
+  width: 70%; /* 幅を70%に縮める */
+  max-width: 1200px; /* 最大幅を1200pxに制限 */
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.character-create-contents h2,
+.character-create-contents h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.character-create-contents h3 {
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+/* Input fields and labels */
+.character-text {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  color: #ccc;
+}
+
+.indispensable {
+  color: red;
+}
+
+#total-points,
+#remaining-points {
+  font-size: 18px;
+}
+
+.text-danger {
+  color: red;
+}
+
+#custom-skills .custom-skill {
+  margin-bottom: 10px;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#custom-skills input {
+  width: 45%; /* 入力フィールドの幅を縮める */
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+.remove-skill {
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#add-skill {
+  padding: 10px 20px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#add-skill:hover {
+  background-color: #3498db;
+}
+
+.possessions,
+.note {
+  background-color: #444;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.possessions textarea,
+.note textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  font-size: 14px;
+}
+
+/* Buttons */
+.create-btn-contents {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.create-btn,
+.back-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.create-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.create-btn:hover {
+  background-color: #2ecc71;
+}
+
+.back-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #c0392b;
+}
+
+.img-upload {
+  background-color: #444;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.click-upload {
+  background-color: #555;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.click-upload p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.roll-dice {
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.roll-dice:hover {
+  background-color: #e67e22;
+}
+
+#roll-all-dice {
+  padding: 10px 20px;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#roll-all-dice:hover {
+  background-color: #9b59b6;
+}
